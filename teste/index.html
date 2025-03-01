@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Duas Imagens com Chance de Vermelha</title>
+    <style>
+        img {
+            width: 200px;
+            height: 200px;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <img id="image1" src="verde.gif" alt="Imagem Verde 1">
+    <img id="image2" src="verde.gif" alt="Imagem Verde 2">
+    <img id="image3" src="verde.gif" alt="Imagem Verde 3">
+
+    <script>
+        const image1 = document.getElementById('image1');
+        const image2 = document.getElementById('image2');
+        const image3 = document.getElementById('image3');
+        const greenImage = 'verde.gif'; // Caminho para a imagem verde
+        const redImage = 'vermelho.jpg';     // Caminho para a imagem vermelha
+
+        function updateImage(imageElement, intervalId) {
+            const randomChance = Math.random(); // Gera um número aleatório entre 0 e 1
+
+            if (randomChance < 0.01) { // 1% de chance
+                imageElement.src = redImage;
+                imageElement.alt = 'Imagem Vermelha';
+                clearInterval(intervalId); // Para a atualização da imagem
+            } else {
+                imageElement.src = greenImage;
+                imageElement.alt = 'Imagem Verde';
+            }
+        }
+
+        // Inicia o intervalo de atualização para a primeira imagem
+        const intervalId1 = setInterval(() => updateImage(image1, intervalId1), 1000);
+
+        // Inicia o intervalo de atualização para a segunda imagem
+        const intervalId2 = setInterval(() => updateImage(image2, intervalId2), 1000);
+
+                // Inicia o intervalo de atualização para a segunda imagem
+        const intervalId3 = setInterval(() => updateImage(image3, intervalId3), 1000);
+    </script>
+</body>
+</html>
